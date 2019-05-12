@@ -1,0 +1,44 @@
+
+
+
+main .left .every_day{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 10px #5f5f5f;
+}
+main .left .every_day .title{
+    color: blueviolet;
+}
+main .left .every_day .con{
+    height: 30px;
+    line-height: 30px;
+}
+main .left .every_day .auther{
+    float:right;
+}
+
+main .left article{
+    box-sizing: border-box;
+    margin-top: 25px;
+    box-shadow: 1px 1px 10px #5f5f5f;
+}
+main .left article .conWrapper{
+    padding: 15px;
+}
+main .left article .foot{
+    box-sizing: border-box;
+    padding: 0 15px;
+    font-size: 14px;
+    width: 100%;
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    background-color: #000;
+}
+
+
+
+
+
