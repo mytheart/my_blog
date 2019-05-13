@@ -8,11 +8,13 @@ body{
 a{
     text-decoration: none;
 }
-h2.siteTitle{
+/* h2.siteTitle{
+    margin-top: 80px;
+
     text-align: center;
     height: 80px;
     line-height: 80px;
-}
+} */
 
 .siteNav{
     box-sizing: border-box;
@@ -20,8 +22,10 @@ h2.siteTitle{
     border: 1px solid #ddd;
     /* clear: both; */
     width: 1170px;
-    margin: auto;
-    margin-top: 10px;
+    margin:0 auto;
+    margin-top: 80px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 10px #5f5f5f;
 }
 
 .siteNav a{
@@ -32,9 +36,12 @@ h2.siteTitle{
     font-weight: 28;
 }
 .siteContent{
+    box-sizing: border-box;
     width: 1170px;
     border: 1px solid #ddd;
     margin: 20px auto;
+    border-radius: 4px;
+    box-shadow: 1px 1px 10px #5f5f5f;
 }
 .siteContent .title{
     padding: 15px;
@@ -46,8 +53,9 @@ h2.siteTitle{
 }
 .siteContent ul li{
     list-style: none;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
 }
 .siteContent ul li a{
     color: #000;
