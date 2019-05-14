@@ -47,119 +47,119 @@
     <main>
         <div class="w cl">
             <div class="left">
-                <div class="every_day cl">
+                <!-- 每日一句 -->
+                <div class="every_day cl" id="every_day">
                     <h4 class="title">每日一句</h4>
-                    <p class="con">A mother's arms are more comforting than anyone else's.</p>
+                    <p class="con">{{content}}</p>
                     <p class="auther">———— Princess Diana</p>
                 </div>
-                <article>
-                    <div class="conWrapper">
-                        <h3 class="title">【更新】PC端微信(2.6.7.57)防撤回</h3>
-                        <p class="con">2019-4-24更新微信 2.6.7.57防撤回，搜索 偏移量 00252185，数值75改为74
-                            。—————————–此方法仅限于官网下载的PC版微信2.6.6.28版本。工具：winhex19、pc版微信打开winhex19，
-                            文件->打开，定位并找到微信安装目录中的WeChatWin.dll，打开。点击左侧offset列，使偏移量转为16进制格式显示。点击工...</p>
-                    </div>
+                <!-- 文章 -->
+                <div id="articleBox">
+                    <article v-for="(item,index) in articleList" :key="index">
+                        <div class="conWrapper">
+                            <h3 class="title">
+                                <a :href="item.link">{{item.title}}</a>
+                            </h3>
+                            <p class="con">{{item.content}}</p>
+                        </div>
 
-                    <p class="foot">
-                        发布于 <span class="time">2019-02-14</span> | 浏览(<span class="views">1,933</span>) | Tags：<span
-                            class="tag">微信</span>
-                    </p>
-                </article>
+                        <p class="foot">
+                            发布于 <span class="time">{{item.data}}</span> | 浏览(<span class="views">{{item.views}}</span>)
+                            | Tags：<span class="tag">{{item.tag}}</span>
+                        </p>
+                    </article>
+                </div>
+
+                <!-- <div id="article" v-for="item,index in articleList" :key="index">
+                    {{item.title}}
+                </div> -->
             </div>
 
             <div class="right">
-                <div class="randomTags">
-                        <p class="title">随机标签云</p>
-                        <div class="con">
-                            
-                            <span><a href="#">javaScript</a></span>
-                            <span><a href="#">php</a></span>
-                            <span><a href="#">Vue.js</a></span>
-                            <span><a href="#">jQuery</a></span>
-                            <span><a href="#">React</a></span>
-                            <span><a href="#">移动端</a></span>
-                            <span><a href="#">webApp</a></span>
-                            <span><a href="#">ES6</a></span>
-                            <span><a href="#">webpack</a></span>
-                            <span><a href="#">bootstrap</a></span>
-                            <span><a href="#">mysql</a></span>
-                            <span><a href="#">linux</a></span>
-                            <span><a href="#">centos7</a></span>
-                        </div>
+                <div class="randomTags" id="random_tags">
+                    <p class="title">随机标签云</p>
+                    <div class="con">
+                        <span v-for="item,index in tags" :key="index"><a :href="item.link"
+                                :style="{color:randomColor(),fontSize:randomSize()}">{{item.tag}}</a></span>
+                    </div>
                 </div>
 
-                <div class="recentHot">
+                <div class="recentHot" id="newHot">
                     <p class="title">最近热门</p>
                     <div class="con">
                         <ul>
-                            <li>
-                                <a href="#">查看你的AWS服务器已使用流量</a>
+                            <li v-for="item,index in titleList" :key="index">
+                                <a :href="item.link">{{item.title}}</a>
                             </li>
-                            <li>
-                                <a href="#">查看你的AWS服务器已使用流量</a>
-                            </li>
-                            <li>
-                                <a href="#">VirtualBox压缩vmdk、vagrant打包b</a>
-                            </li>
-                            <li>
-                                <a href="#">使用码云git的webhook实现生产环境代</a>
-                            </li>
-                            <li>
-                                <a href="#">python+selenium自动登录qq空间并下载</a>
-                            </li>
-                            <li>
-                                <a href="#">vscode+XDebug调试远程环境(虚拟机)</a>
-                            </li>
-                            <li>
-                                <a href="#">抓取摩拜单车车辆位置数据</a>
-                            </li>
-                            <li>
-                                <a href="#">ubuntu下cmake报错Could NOT fin</a>
-                            </li>
-                            <li>
-                                <a href="#">初烧盲狙一条铁三角e40</a>
-                            </li>
-                            <li>
-                                <a href="#">树莓派安装homebridge小记</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
 
-                <div class="recentComment">
+                <div class="recentComment" id="newComment">
                     <p class="title">最新评论</p>
                     <ul class="con">
-                        <li>
+                        <li v-for="item,index in commentList" :key="index">
                             <p>
-                                <span class="name">穆鸟</span>
-                                <span class="time">[3天前]</span>
+                                <span class="name">{{item.name}}</span>
+                                <span class="time">{{item.data}}</span>
                             </p>
-                            <a href="#">好的，谢谢</a>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="name">1312</span>
-                                <span class="time">[2天前]</span>
-                            </p>
-                            <a href="#">while(1) alert</a>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="name">杰西</span>
-                                <span class="time">[2周前]</span>
-                            </p>
-                            <a href="#">老哥， 我针对搜索引擎做了优化， 现</a>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="name">穆鸟</span>
-                                <span class="time">[3天前]</span>
-                            </p>
-                            <a href="#">好的，谢谢</a>
+                            <a href="#">{{item.comment}}</a>
                         </li>
                     </ul>
                 </div>
-               
+
+
+                <div class="recom_site">
+                    <p class="title">推荐站点 | 作品链接</p>
+                    <ul class="con">
+                        <li>
+                            <a href="https://www.runoob.com/">菜鸟教程</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://leetcode-cn.com/">leetcode</a>
+                        </li>
+                        <li>
+                            <a href="https://www.bilibili.com/">哔哩哔哩</a>
+                        </li>
+                        <li>
+                            <a href="https://ke.qq.com/">腾讯课堂</a>
+                        </li>
+                        <li>
+                            <a href="https://www.nowcoder.com/">牛客网</a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.csdn.net/">CSDN</a>
+                        </li>
+                        <li>
+                            <a href="https://www.zhipin.com/">BOSS直聘</a>
+                        </li>
+                        <li>
+                            <a href="http://m.panduoduo.net/">盘多多</a>
+                        </li>
+                        <li>
+                            <a href="https://tieba.baidu.com">百度贴吧</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/snake/">贪吃蛇</a>
+                        </li>
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/mineClearance/">扫雷</a>
+                        </li>
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/chatbot/">聊天机器人</a>
+                        </li>
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/JD/">京东首页</a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
 
@@ -184,9 +184,12 @@
             <li><a href="#">学习笔记</a></li>
             <li><a href="#">视频分享</a></li>
         </ul>
-        <p>Copyright © 2019-2019  张印个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+        <p>Copyright © 2019-2019 张印个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
     </footer>
-
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

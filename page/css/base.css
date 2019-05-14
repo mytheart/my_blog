@@ -4,19 +4,24 @@
     padding: 0;
     list-style: none;
 }
-body{
+
+body {
     background-color: #f0f3ef;
 }
-input,button{
+
+input,
+button {
     border: none;
     /* outline: none; */
 }
-a{  
+
+a {
     text-decoration: none;
     color: #fff;
 }
+
 /* 清除浮动 */
-.cl::after{
+.cl::after {
     content: '';
     display: block;
     clear: both;
@@ -39,38 +44,44 @@ header {
     background-color: #000;
 }
 
-header .content .left{
+header .content .left {
     float: left;
 }
-header .content .left ul{
+
+header .content .left ul {
     height: 50px;
 }
-header .content .left li{
+
+header .content .left li {
     float: left;
     height: 100%;
     line-height: 50px;
 }
-header .content .left li a{
+
+header .content .left li a {
     color: #fff;
     font-size: 14px;
     margin-right: 25px;
 }
-header .content .left li:nth-of-type(1) a{
+
+header .content .left li:nth-of-type(1) a {
     font-size: 20px;
 }
 
-header .content .right{
+header .content .right {
     float: right;
     line-height: 50px;
     height: 100%;
 }
-header .content .right input{
+
+header .content .right input {
     box-sizing: border-box;
     padding: 5px 10px;
     height: 35px;
     border-radius: 5px;
 }
-header .content .right button{
+
+header .content .right button {
     height: 35px;
     width: 60px;
     background-color: #fff;
@@ -79,88 +90,119 @@ header .content .right button{
 
 
 
-main{
+main {
     /* background-color: red; */
     padding: 25px 0 0 0;
     margin-top: 50px;
 }
-main .left{
+
+main .left {
     float: left;
     width: 65%;
 }
+
 /* 右边内容 */
-main .right{
+main .right {
     float: right;
     width: 32%;
 }
-main .right .randomTags{
+
+main .right .randomTags {
     border-radius: 4px;
     overflow: hidden;
 }
-main .right .title{
+
+main .right .title {
     background-color: #000;
     height: 20px;
     line-height: 20px;
     padding: 10px;
     color: #fff;
 }
-main .right .con{
+
+main .right .con {
     padding: 15px 15px 8px 15px;
-    background-color:#1f1f1f;
-}
-main .right .randomTags .con span{
-    height: 25px;
-    line-height: 25px;
+    background-color: #1f1f1f;
+    word-break: break-all;
 }
 
-main .right .recentHot{
+main .right .randomTags .con span {
+    height: 35px;
+    line-height: 35px;
+    margin-right: 10px;
+}
+
+main .right .recentHot {
     margin-top: 25px;
 }
-main .right .recentHot ul li{
+
+main .right .recentHot ul li {
     line-height: 40px;
     height: 40px;
 }
 
-main .right .recentComment{
+main .right .recentComment {
     margin-top: 25px;
 }
-main .right .recentComment ul li{
+
+main .right .recentComment ul li {
     height: 50px;
     font-size: 14px;
 }
-main .right .recentComment ul li p{
+
+main .right .recentComment ul li p {
     height: 25px;
     color: #eee;
 }
-main .right .recentComment ul li p .time{
+
+main .right .recentComment ul li p .time {
     float: right;
 }
-main .right .recentComment ul li a{
+
+main .right .recentComment ul li a {
     color: #777;
+}
+
+main .right .recom_site {
+    margin-top: 25px;
+}
+
+main .right .recom_site ul {
+    overflow: hidden;
+}
+
+main .right .recom_site .con li {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    line-height: 40px;
+    height: 40px;
 }
 
 
 /* 底部 */
-footer{
+footer {
     margin-top: 30px;
     color: #a2a2a2;
     background-color: #191818;
     border-top: 1px solid #e5e5e5;
     padding: 25px;
 }
-footer ul{
+
+footer ul {
     height: 35px;
     text-align: center;
 }
-footer ul li{
+
+footer ul li {
     display: inline-block;
     margin-left: 15px;
 }
-footer ul li a{
+
+footer ul li a {
     color: #a2a2a2;
 }
-footer  p{
+
+footer p {
     text-align: center;
 }
-
-

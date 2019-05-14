@@ -20,7 +20,7 @@
   <script src="./bootstrap-wysiwyg-master/external/google-code-prettify/prettify.js"></script>
   <link href="./bootstrap-wysiwyg-master/index.css" rel="stylesheet">
   <script src="./bootstrap-wysiwyg-master/bootstrap-wysiwyg.js"></script>
-
+ 
   <style>
     .submitBtn {
       width: 200px;
@@ -35,9 +35,7 @@
 
 <body>
   <div class="container">
-    <h1>文章编辑</h1>
-    <input type="text" placeholder="请输入标题" id="title">
-    <input type="text" placeholder="请输入标签，用逗号隔开" id="tags">
+    <h1>每日一句</h1>
     <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
       <div class="btn-group">
         <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b
@@ -164,47 +162,34 @@
       });
       window.prettyPrint && prettyPrint();
     });
-    $("#editor").on('focus', function () {
-      this.innerHTML = '';
+
+    
+    $("#editor").on('focus',function(){
+      this.innerHTML='';
     })
   </script>
 
-  <script>
-    function submit() {
-      var title = $("#title").val();
-      var tags = $("#tags").val();
-      var content = $("#editor").html();
-      $.ajax({
-        url: '/editBlog',
-        data: {
-          title: title,
-          tags: tags,
-          content: content
-        },
-        method: 'post',
-        success: function (data) {
+<script>
+  // my
+  function submit() {
+    var content = $("#editor").html().trim();
+    $.ajax({
+        url: "/editEveryDay",
+        method: "post",
+        data: content,
+        success: function(data) {
           console.log(data)
+            // var result = JSON.parse(resp);
+            // alert(result.msg);
+            // $("#editor").html("");
         },
         error: function (error) {
-          console.log('error', error)
+            console.log(error);
         }
-      })
-      // $.ajax({
-      //   url: "/editBlog?title=" + title + "&tags=" + tags,
-      //   method: "post",
-      //   data: content,
-      //   success: function (resp) {
-      //     var result = JSON.parse(resp);
-      //     alert(result.msg);
-      //     $("#editor").html("");
-      //   },
-      //   error: function (resp) {
-      //     console.log(resp);
-      //   }
-      // });
+    });
 
-    }
-  </script>
+  }
+</script>
 
 </body>
 
