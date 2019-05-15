@@ -2,19 +2,20 @@ const everyDay = new Vue({
     el: "#every_day",
     data: {
         // 每日一句内容
-        content: "A mother's arms are more comforting than anyone else's."
+        content: ""
     },
+  
     created() {
         // 发送请求获取数据
-        // axios({
-        //     url:"/queryEveryDay",
-        //     methods:"get",
-        // }).then(function(response){
-        //     // 获取成功
-        //     this.content=response.data.data[0].content;
-        // }).catch(function(reject){
-        //     console.log('请求失败')
-        // })
+        axios({
+            url:"/getEveryDay",
+            methods:"get",
+        }).then(function(response){
+            // 获取成功
+            everyDay.content=response.data.data[0].content;
+        }).catch(function(reject){
+            console.log('请求失败')
+        })
     },
 })
 

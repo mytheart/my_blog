@@ -5,9 +5,8 @@ let controllerSet = [];
 let pathMap = new Map();
 
 let files = fs.readdirSync(globalConfig["web_path"]);
-
 for (let i = 0; i < files.length; i++) {
-    let temp = require('./' + globalConfig["web_path"] + '/' + files[0]);
+    let temp = require('./' + globalConfig["web_path"] + '/' + files[i]);
     if(!temp.path){
       return;
     }

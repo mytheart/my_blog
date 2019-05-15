@@ -10,6 +10,10 @@ server.use(express.static("./page/"));
 // 接口
 server.post('/editEveryDay',loader.get('/editEveryDay'))
 
+server.get('/getEveryDay',loader.get('/getEveryDay'))
+
+server.post('/editBlog',loader.get('/editBlog'))
+
 
 
 
