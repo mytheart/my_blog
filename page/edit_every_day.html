@@ -167,8 +167,10 @@
     });
 
     
-    $("#editor").on('focus',function(){
-      this.innerHTML='';
+    $("#editor").on('focus', function () {
+      if (this.innerHTML.trim() == 'Go ahead…') {
+        this.innerHTML = '';
+      }
     })
   </script>
 

@@ -1,6 +1,7 @@
 let express=require("express");
 let globalConfig=require("./config.js");
 let loader=require("./loader.js");
+let url=require('url');
 
 let server=express();
 
@@ -8,11 +9,14 @@ let server=express();
 server.use(express.static("./page/"));
 
 // 接口
-server.post('/editEveryDay',loader.get('/editEveryDay'))
+server.post('/editEveryDay',loader.get('/editEveryDay'));
 
-server.get('/getEveryDay',loader.get('/getEveryDay'))
+server.get('/getEveryDay',loader.get('/getEveryDay'));
 
-server.post('/editBlog',loader.get('/editBlog'))
+server.post('/editBlog',loader.get('/editBlog'));
+
+server.get('/queryBlogByPage',loader.get('/queryBlogByPage'));
+
 
 
 

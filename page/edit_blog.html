@@ -23,8 +23,9 @@
 
   <style>
     body {
-    background-color: #f0f3ef;
-}
+      background-color: #f0f3ef;
+    }
+
     .submitBtn {
       width: 200px;
       height: 50px;
@@ -168,7 +169,9 @@
       window.prettyPrint && prettyPrint();
     });
     $("#editor").on('focus', function () {
-      this.innerHTML = '';
+      if (this.innerHTML.trim() == 'Go ahead…') {
+        this.innerHTML = '';
+      }
     })
   </script>
 
@@ -177,34 +180,36 @@
       var title = $("#title").val();
       var tags = $("#tags").val();
       var content = $("#editor").html();
-      $.ajax({
-        url: '/editBlog',
-        method: 'post',
-        data: {
-          title: title,
-          tags: tags,
-          content: content
-        },
-        success: function (response) {
-          console.log(response)
-        },
-        error: function (error) {
-          console.log('error', error)
-        }
-      })
       // $.ajax({
-      //   url: "/editBlog?title=" + title + "&tags=" + tags,
-      //   method: "post",
-      //   data: content,
-      //   success: function (resp) {
-      //     var result = JSON.parse(resp);
-      //     alert(result.msg);
-      //     $("#editor").html("");
+      //   url: '/editBlog',
+      //   method: 'post',
+      //   data: {
+      //     title: title,
+      //     tags: tags,
+      //     content: content
       //   },
-      //   error: function (resp) {
-      //     console.log(resp);
+      //   success: function (response) {
+      //     alert('添加成功')
+      //     console.log(response)
+      //   },
+      //   error: function (error) {
+      //     alert('添加失败')
+      //     console.log('error', error)
       //   }
-      // });
+      // })
+      $.ajax({
+        url: "/editBlog?title=" + title + "&tags=" + tags,
+        method: "post",
+        data: content,
+        success: function (resp) {
+          var result = JSON.parse(resp);
+          alert(result.msg);
+          $("#editor").html("");
+        },
+        error: function (resp) {
+          console.log(resp);
+        }
+      });
 
     }
   </script>

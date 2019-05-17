@@ -64,10 +64,18 @@
                         </div>
 
                         <p class="foot">
-                            发布于 <span class="time">{{item.data}}</span> | 浏览(<span class="views">{{item.views}}</span>)
-                            | Tags：<span class="tag">{{item.tag}}</span>
+                            发布于 <span class="time">{{item.date}}</span> | 浏览(<span class="views">{{item.views}}</span>)
+                            | Tags：<span class="tag">{{item.tags}}</span>
                         </p>
+
                     </article>
+                    <!-- 翻页 -->
+                    <div class="page_tool">
+                        <ul>
+                            <li v-for="pageNum in pageNumList" v-on:click="jumpTo(pageNum.page)" v-bind:class="{now_page:(pageNum.text == page)}">{{pageNum.text}}</li>
+                        </ul>
+                    </div>
+
                 </div>
 
                 <!-- <div id="article" v-for="item,index in articleList" :key="index">
