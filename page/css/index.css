@@ -48,6 +48,40 @@ main .left article .foot{
 }
 
 
+.page_tool {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.page_tool > ul > li {
+    display: inline-block;
+    list-style: none;
+    width: 35px;
+    height: 35px;
+    background: pink;
+    line-height: 35px;
+    background: white;
+    text-align: center;
+    border: 1px solid black;
+    float: left;
+    cursor: pointer;
+    font-size: 12px;
+}
+.page_tool > ul > li.prev_page,
+.page_tool > ul >li.next_page{
+    width: 60px;
+}
+
+.page_tool > ul > li:hover {
+    background: gray;
+}
+
+.now_page {
+    background: #333 !important;
+    color: #fff !important;
+}
+
+
 
 
 

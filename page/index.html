@@ -55,32 +55,32 @@
                 </div>
                 <!-- 文章 -->
                 <div id="articleBox">
-                    <article v-for="(item,index) in articleList" :key="index">
+                    <article v-for="(article,index) in articleList" :key="index">
                         <div class="conWrapper">
                             <h3 class="title">
-                                <a :href="item.link">{{item.title}}</a>
+                                <a :href="article.link">{{article.title}}</a>
                             </h3>
-                            <p class="con">{{item.content}}</p>
+                            <p class="con">{{article.content}}</p>
                         </div>
 
                         <p class="foot">
-                            发布于 <span class="time">{{item.date}}</span> | 浏览(<span class="views">{{item.views}}</span>)
-                            | Tags：<span class="tag">{{item.tags}}</span>
+                            发布于 <span class="time">{{article.date}}</span> | 浏览(<span class="views">{{article.views}}</span>)
+                            | Tags：<span class="tag">{{article.tags}}</span>
                         </p>
 
                     </article>
                     <!-- 翻页 -->
                     <div class="page_tool">
                         <ul>
-                            <li v-for="pageNum in pageNumList" v-on:click="jumpTo(pageNum.page)" v-bind:class="{now_page:(pageNum.text == page)}">{{pageNum.text}}</li>
+                            <li class="prev_page" v-if="page!=1" @click="prevHandle()">上一页</li>
+                            <li class="num_page" v-for="item,index in pageNumList" @click="getPage(item,pageSize)" :class="{now_page:item==page}">{{item}}</li>
+                            <li class="next_page" @click="nextHandle()">下一页</li>
+                            <li class="last_page" @click="lastHandle()">最后</li>
                         </ul>
                     </div>
 
                 </div>
-
-                <!-- <div id="article" v-for="item,index in articleList" :key="index">
-                    {{item.title}}
-                </div> -->
+             
             </div>
 
             <div class="right">

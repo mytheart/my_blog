@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,188 @@
     <link rel="stylesheet" href="./css/blog_detail.css">
     <title>张印个人博客 | 技术博客</title>
 </head>
+
 <body>
-    
+    <header>
+        <div class="w content">
+            <div class="left ">
+                <ul>
+                    <li>
+                        <a href="#">
+                            张印个人博客 | 技术博客
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/index.html">首页</a>
+                    </li>
+                    <li>
+                        <a href="/siteMap.html">地图</a>
+                    </li>
+                    <li>
+                        <a href="/about.html">关于</a>
+                    </li>
+                    <li>
+                        <a href="/guestbook.html">留言</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="right">
+                <input type="text" placeholder="输入关键词查找">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="w cl">
+            <div class="left" id="leftContent">
+                <div class="articleDetail" id="articleDetail">
+                    <h2>{{article.title}}</h2>
+                    <p>作者: 张印 分类: <span class="tags">{{article.tags}}</span> 发布于: <span class="ctime">{{article.ctime}}</span> 浏览(<span
+                            class="views">{{article.views}}</span>) <a href="#" class="commend">评论(1)</a></p>
+                    <div class="content">{{article.content}}</div>
+                </div>
+                <p class="switch">
+                    <span class="prevBlog"><a :href="'/blog_detail.html?id='+(article.id-1)">上一篇</a></span>
+                    <span class="nextBlog"><a :href="'/blog_detail.html?id='+(article.id+1)">下一篇</a></span>
+                </p>
+
+                <div class="sent_comment">
+                    <p>发表评论</p>
+                    <p>
+                        <input type="text" class="name" placeholder="昵称">
+                        <input type="text" class="email" placeholder="邮箱(评论被回复时你能收到通知)">
+                    </p>
+                    <p class="com_box">
+                        <textarea name="textarea" class="com_con" id="" cols="30" rows="10"></textarea>
+                    </p>
+                    <p>
+                        <input type="text" class="verifyCode" placeholder="验证码">
+                        <span class="verifyImage"></span>
+                    </p>
+                    <p>
+                        <button class="submit">提交留言</button>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div class="randomTags" id="random_tags">
+                    <p class="title">随机标签云</p>
+                    <div class="con">
+                        <span v-for="item,index in tags" :key="index"><a :href="item.link"
+                                :style="{color:randomColor(),fontSize:randomSize()}">{{item.tag}}</a></span>
+                    </div>
+                </div>
+
+                <div class="recentHot" id="newHot">
+                    <p class="title">最近热门</p>
+                    <div class="con">
+                        <ul>
+                            <li v-for="item,index in titleList" :key="index">
+                                <a :href="item.link">{{item.title}}</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="recentComment" id="newComment">
+                    <p class="title">最新评论</p>
+                    <ul class="con">
+                        <li v-for="item,index in commentList" :key="index">
+                            <p>
+                                <span class="name">{{item.name}}</span>
+                                <span class="time">{{item.data}}</span>
+                            </p>
+                            <a href="#">{{item.comment}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="recom_site">
+                    <p class="title">推荐站点 | 作品链接</p>
+                    <ul class="con">
+                        <li>
+                            <a href="https://www.runoob.com/">菜鸟教程</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com">Github</a>
+                        </li>
+                        <li>
+                            <a href="https://leetcode-cn.com/">leetcode</a>
+                        </li>
+                        <li>
+                            <a href="https://www.bilibili.com/">哔哩哔哩</a>
+                        </li>
+                        <li>
+                            <a href="https://ke.qq.com/">腾讯课堂</a>
+                        </li>
+                        <li>
+                            <a href="https://www.nowcoder.com/">牛客网</a>
+                        </li>
+
+                        <li>
+                            <a href="https://www.csdn.net/">CSDN</a>
+                        </li>
+                        <li>
+                            <a href="https://www.zhipin.com/">BOSS直聘</a>
+                        </li>
+                        <li>
+                            <a href="http://m.panduoduo.net/">盘多多</a>
+                        </li>
+                        <li>
+                            <a href="https://tieba.baidu.com">百度贴吧</a>
+                        </li>
+
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/snake/">贪吃蛇</a>
+                        </li>
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/mineClearance/">扫雷</a>
+                        </li>
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/chatbot/">聊天机器人</a>
+                        </li>
+                        <li>
+                            <a href="https://mytheart.github.io/my-projects/projects/JD/">京东首页</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <ul class="tags">
+            <li><a href="#">javaScript</a></li>
+            <li><a href="#">Linux</a></li>
+            <li><a href="#">Vue.js</a></li>
+            <li><a href="#">node.js</a></li>
+            <li><a href="#">React.js</a></li>
+            <li><a href="#">webpack</a></li>
+            <li><a href="#">jQuery</a></li>
+            <li><a href="#">Es6</a></li>
+            <li><a href="#">bootstrap</a></li>
+            <li><a href="#">java</a></li>
+            <li><a href="#">mysql</a></li>
+            <li><a href="#">数据结构和算法</a></li>
+            <li><a href="#">学习经验</a></li>
+            <li><a href="#">学习笔记</a></li>
+            <li><a href="#">视频分享</a></li>
+        </ul>
+        <p>Copyright © 2019-2019 张印个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+    </footer>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/blog_detail.js" type="module"></script>
 </body>
+
 </html>

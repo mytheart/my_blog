@@ -1,5 +1,37 @@
 let dbutil = require('./dbutil');
 
+function queryBlogById(id, success) {
+    var querySql = "select * from blog where id = ?;";
+    var params = [id];
+
+    var connection = dbutil.createConnection();
+    connection.connect();
+    connection.query(querySql, params, function (error, result) {
+        if (error == null) {
+            success(result);
+        } else {
+            console.log(error);
+        }
+    });
+    connection.end();
+}
+
+function queryBlogCount(success) {
+    var querySql = "select count(1) as count from blog;";
+    var params = [];
+
+    var connection = dbutil.createConnection();
+    connection.connect();
+    connection.query(querySql, params, function (error, result) {
+        if (error == null) {
+            success(result);
+        } else {
+            console.log(error);
+        }
+    });
+    connection.end();
+}
+
 function queryBlogByPage(page, pageSize, success) {
     var insertSql = "select * from blog order by id desc limit ?, ?;";
     var params = [page * pageSize, pageSize];
@@ -35,5 +67,7 @@ function insertBlog(title, tags, content, views, ctime, utime, success) {
 
 module.exports = {
     insertBlog,
-    queryBlogByPage
+    queryBlogByPage,
+    queryBlogCount,
+    queryBlogById
 }

@@ -8,9 +8,28 @@ let path = new Map();
 
 path.set('/editBlog', editBlog);
 path.set('/queryBlogByPage', queryBlogByPage)
+path.set('/queryBlogCount',queryBlogCount)
+path.set('/queryBlogById',queryBlogById)
 
 
+function queryBlogById(request, response) {
+    var params = url.parse(request.url, true).query;
+    blogDao.queryBlogById(parseInt(params.id), function(result) {
+       
+        response.writeHead(200);
+        response.write(respUtil.writeResult("success", "查询成功", result));
+        response.end();
+        // blogDao.addViews(parseInt(params.id), function (result) {});
+    });
+}
 
+function queryBlogCount(request, response) {
+    blogDao.queryBlogCount(function (result) {
+        response.writeHead(200);
+        response.write(respUtil.writeResult("success", "查询成功", result));
+        response.end();
+    });
+}
 
 function queryBlogByPage(request, response) {
     var params = url.parse(request.url, true).query;
@@ -46,33 +65,6 @@ function editBlog(request, response) {
     });
 }
 
-// function editBlog(request, response) {
-//     request.on('data', function (data) {
-//         let dataObj = {};
-//         data.toString().split('&').forEach((ele) => {
-//             let temp = ele.trim().split('=');
-//             dataObj[temp[0]] = temp[1];
-//         })
-//         dataObj.tags.replace(/'，'/g, ',').replace(/ /g, '');
-//         blogDao.insertBlog(dataObj.title, dataObj.content, dataObj.tags, 0, timeUtil.getNow(), timeUtil.getNow(), function (result) {
-//             response.writeHead(200, {
-//                 'Content-Type': 'text/html;charset=utf-8'
-//             })
-//             response.write(respUtil.writeResult('success', '添加成功', null))
-//             response.end()
-//             // 插入tag表
-//             let blogId = result.insertId;
-//             let tagList = dataObj.tags.split("%2C");
-//             for (let i = 0; i < tagList.length; i++) {
-//                 if (tagList[i] == "") {
-//                     continue;
-//                 }
-//                 queryTag(tagList[i], blogId);
-//             }
-//         })
-
-//     })
-// }
 
 function queryTag(tag, blogId) {
     tagsDao.queyrTag(tag, function (result) {
