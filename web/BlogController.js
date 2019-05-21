@@ -10,7 +10,17 @@ path.set('/editBlog', editBlog);
 path.set('/queryBlogByPage', queryBlogByPage)
 path.set('/queryBlogCount',queryBlogCount)
 path.set('/queryBlogById',queryBlogById)
+path.set("/queryAllBlog", queryAllBlog);
+path.set("/queryHotBlog", queryHotBlog);
 
+
+function queryAllBlog(request, response) {
+    blogDao.queryAllBlog(function (result) {
+        response.writeHead(200);
+        response.write(respUtil.writeResult("success", "查询成功", result));
+        response.end();
+    });
+}
 
 function queryBlogById(request, response) {
     var params = url.parse(request.url, true).query;
@@ -19,7 +29,7 @@ function queryBlogById(request, response) {
         response.writeHead(200);
         response.write(respUtil.writeResult("success", "查询成功", result));
         response.end();
-        // blogDao.addViews(parseInt(params.id), function (result) {});
+        blogDao.addViews(parseInt(params.id), function (result) {});
     });
 }
 
@@ -84,6 +94,15 @@ function insertTag(tag, blogId) {
 
 function insertTagBlogMapping(tagId, blogId) {
     tagBlogMappingDao.insertTagBlogMapping(tagId, blogId, timeUtil.getNow(), timeUtil.getNow(), function (result) {});
+}
+
+
+function queryHotBlog(request, response) {
+    blogDao.queryHotBlog(10, function (result) {
+        response.writeHead(200);
+        response.write(respUtil.writeResult("success", "查询成功", result));
+        response.end();
+    });
 }
 
 

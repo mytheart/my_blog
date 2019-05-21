@@ -93,14 +93,14 @@ main .left .sent_comment {
     height: 35px;
     width: 100px;
     vertical-align: middle;
-    background-size: 100% 100%;
-    background-image: url('../imgs/zh-vm.png');
 
 }
 
 .sent_comment .submit {
+    cursor: pointer;
     height: 35px;
     width: 80px;
     background-color: #fff;
     border-radius: 5px;
+    outline: none;
 }

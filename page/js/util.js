@@ -4,7 +4,7 @@ function getWindonHref() {
     if (args[0] === sHref) {
         return '';
     }
-    var hrefarr = args[1].split('&');
+    var hrefarr = args[1].split('#')[0].split('&');
     var obj = {};
     for (var i = 0; i < hrefarr.length; i++) {
         hrefarr[i] = hrefarr[i].split('=');

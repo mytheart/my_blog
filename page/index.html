@@ -87,7 +87,7 @@
                 <div class="randomTags" id="random_tags">
                     <p class="title">随机标签云</p>
                     <div class="con">
-                        <span v-for="item,index in tags" :key="index"><a :href="item.link"
+                        <span v-for="item,index in tags" :key="index"><a @click="clickHandle(item.id)" href="#"
                                 :style="{color:randomColor(),fontSize:randomSize()}">{{item.tag}}</a></span>
                     </div>
                 </div>
@@ -96,8 +96,8 @@
                     <p class="title">最近热门</p>
                     <div class="con">
                         <ul>
-                            <li v-for="item,index in titleList" :key="index">
-                                <a :href="item.link">{{item.title}}</a>
+                            <li v-for="item,index in hotBlogs" :key="index">
+                                <a :href="'/blog_detail.html?id='+item.id">{{item.title}}</a>
                             </li>
 
                         </ul>

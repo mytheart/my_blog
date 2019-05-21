@@ -34,7 +34,9 @@ function queyrTag(tag, success) {
 function queyrAllTag(success) {
     var insertSql = "select * from tags;";
     var params = [];
+    
     var connection = dbutil.createConnection();
+
     connection.connect();
     connection.query(insertSql, params, function (error, result) {
         if (error == null) {

@@ -43,10 +43,10 @@ const articleBox = new Vue({
                         temp.title = result[i].title;
                         temp.content = result[i].content;
                         temp.date = result[i].ctime;
-                        temp.views = result[i].views;
                         temp.tags = result[i].tags;
                         temp.id = result[i].id;
                         temp.link = "/blog_detail.html?id=" + result[i].id;
+                        temp.views = result[i].views;
                         list.push(temp);
                     }
                     this.articleList = list;

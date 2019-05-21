@@ -139,6 +139,7 @@ main .right .recentHot {
 main .right .recentHot ul li {
     line-height: 40px;
     height: 40px;
+    cursor: pointer;
 }
 
 main .right .recentComment {
@@ -205,4 +206,67 @@ footer ul li a {
 
 footer p {
     text-align: center;
+}
+
+
+/* 留言 */
+.aboutLeaveWords {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: 1px 1px 5px rgba(97, 97, 97, .48);
+}
+
+.aboutLeaveWords .WordsTitle {
+    font-size: 20px;
+    line-height: 25px;
+    height: 25px;
+}
+
+.aboutLeaveWords .wordsLeft {
+    width: 10%;
+    float: left;
+}
+
+.aboutLeaveWords .messageBoard {
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    clear: both;
+}
+
+.aboutLeaveWords .messageBoard .wordsLeft img {
+    width: 80%;
+    border-radius: 4px;
+}
+
+.aboutLeaveWords .messageBoard .wordsRight {
+
+    margin-left: 10px;
+    float: left;
+    padding-bottom:15px; 
+}
+
+.aboutLeaveWords .messageBoard .wordsRight .name {
+    color: #26709A;
+    font-size: 18px;
+    margin-right: 20px
+}
+.aboutLeaveWords .messageBoard .wordsRight .con{
+    min-height: 80px;
+    padding: 15px 0;
+}
+
+.aboutLeaveWords .messageBoard .wordsRight .time{
+    color: #9B9B9B;
+}
+.aboutLeaveWords .messageBoard .wordsRight .time a{
+    color: #26709A;
+    cursor: pointer;
+}
+.aboutLeaveWords .messageBoard .wordsRight .reply a{
+    color: #26709A;
+    cursor: pointer;
 }

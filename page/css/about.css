@@ -52,7 +52,8 @@
     margin-top: 10px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
-    clear: both;
+    /* clear: both; */
+    overflow: hidden;
 }
 
 .aboutLeaveWords .messageBoard .wordsLeft img {

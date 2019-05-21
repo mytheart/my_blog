@@ -50,163 +50,84 @@
                     <p>感谢大家的支持。</p>
                 </div>
 
-                <div class="aboutLeaveWords cl">
+                <div class="aboutLeaveWords cl" id="aboutLeaveWords">
                     <p class="WordsTitle">
-                        关于：目前有66 条留言
+                        关于：目前有<span class="commentTotals">{{totals}}</span>条留言
                     </p>
-                    <div class="messageBoard">
+
+                    <div class="messageBoard" v-for="item,index in commentList" :key="index">
                         <aside class="wordsLeft">
-                            <img  src="./imgs/avator.jpg" alt="">
+                            <img src="./imgs/avator.jpg" alt="">
                         </aside>
                         <aside class="wordsRight">
-                            <p><span class="name">南街古巷</span> 第<span class="floors">2499</span>楼</p>
-                            <p class="con">努力的女孩子运气一定不会差，考研加油！</p>
-                            <p class="time">2019-02-04 18:59</p>
-                        </aside>
-                    </div>
-                    <div class="messageBoard">
-                        <aside class="wordsLeft">
-                            <img  src="./imgs/avator.jpg" alt="">
-                        </aside>
-                        <aside class="wordsRight">
-                            <p><span class="name">南街古巷</span> 第<span class="floors">2499</span>楼</p>
-                            <p class="con">努力的女孩子运气一定不会差，考研加油！</p>
-                            <p class="time">2019-02-04 18:59</p>
-                        </aside>
-                    </div>
-                    <div class="messageBoard">
-                        <aside class="wordsLeft">
-                            <img  src="./imgs/avator.jpg" alt="">
-                        </aside>
-                        <aside class="wordsRight">
-                            <p><span class="name">南街古巷</span> 第<span class="floors">2499</span>楼</p>
-                            <p class="con">努力的女孩子运气一定不会差，考研加油！</p>
-                            <p class="time">2019-02-04 18:59</p>
-                        </aside>
-                    </div>
-                    <div class="messageBoard">
-                        <aside class="wordsLeft">
-                            <img  src="./imgs/avator.jpg" alt="">
-                        </aside>
-                        <aside class="wordsRight">
-                            <p><span class="name">南街古巷</span> 第<span class="floors">2499</span>楼</p>
-                            <p class="con">努力的女孩子运气一定不会差，考研加油！</p>
-                            <p class="time">2019-02-04 18:59</p>
+                            <p><span class="name">{{item.user_name}}</span> </p>
+                            <p class="con">
+                                    <span class="reply" v-if="item.parent!=-1">回复<a href="#">@{{item.parent_name}}</a> </span>
+                                {{item.comments}}</p>
+                            <p class="time">{{item.ctime}} <a href="#sent_comment"  @click="reply(item.id,item.user_name)">[回复]</a></p>
                         </aside>
                     </div>
                 </div>
 
-                <div class="sent_comment">
+                <div class="sent_comment" id="sent_comment">
                     <p>发表评论</p>
                     <p>
-                        <input type="text" class="name" placeholder="昵称">
-                        <input type="text" class="email" placeholder="邮箱(评论被回复时你能收到通知)">
+                        <input type="hidden" id="comment_reply" value="-1">
+                        <input type="hidden" id="comment_reply_name" value="0">
+                        <input type="text" class="name" placeholder="昵称" v-model="username">
+                        <input type="text" class="email" placeholder="邮箱(评论被回复时你能收到通知)" v-model="email">
                     </p>
                     <p class="com_box">
-                        <textarea name="textarea" class="com_con" id="" cols="30" rows="10"></textarea>
+                        <textarea name="textarea" class="com_con" id="" cols="30" rows="10"
+                            v-model="content"></textarea>
                     </p>
                     <p>
-                        <input type="text" class="verifyCode" placeholder="验证码">
-                        <span class="verifyImage"></span>
+                        <input type="text" class="verifyCode" placeholder="验证码" v-model="enterCode">
+                        <span @click="changeCode()" v-html="vcode"></span>
                     </p>
                     <p>
-                        <button class="submit">提交留言</button>
+                        <button class="submit" @click="submitComments">提交留言</button>
                     </p>
                 </div>
-            </div>
 
+                
+            </div> 
+
+            
             <div class="right">
-                <div class="randomTags">
-                        <p class="title">随机标签云</p>
-                        <div class="con">
-                            
-                            <span><a href="#">javaScript</a></span>
-                            <span><a href="#">php</a></span>
-                            <span><a href="#">Vue.js</a></span>
-                            <span><a href="#">jQuery</a></span>
-                            <span><a href="#">React</a></span>
-                            <span><a href="#">移动端</a></span>
-                            <span><a href="#">webApp</a></span>
-                            <span><a href="#">ES6</a></span>
-                            <span><a href="#">webpack</a></span>
-                            <span><a href="#">bootstrap</a></span>
-                            <span><a href="#">mysql</a></span>
-                            <span><a href="#">linux</a></span>
-                            <span><a href="#">centos7</a></span>
-                        </div>
+                <div class="randomTags" id="random_tags">
+                    <p class="title">随机标签云</p>
+                    <div class="con">
+                        <span v-for="item,index in tags" :key="index"><a @click="clickHandle(item.id)" href="#"
+                                :style="{color:randomColor(),fontSize:randomSize()}">{{item.tag}}</a></span>
+                    </div>
                 </div>
 
-                <div class="recentHot">
+                <div class="recentHot" id="newHot">
                     <p class="title">最近热门</p>
                     <div class="con">
                         <ul>
-                            <li>
-                                <a href="#">查看你的AWS服务器已使用流量</a>
+                            <li v-for="item,index in hotBlogs" :key="index">
+                                <a :href="'/blog_detail.html?id='+item.id">{{item.title}}</a>
                             </li>
-                            <li>
-                                <a href="#">查看你的AWS服务器已使用流量</a>
-                            </li>
-                            <li>
-                                <a href="#">VirtualBox压缩vmdk、vagrant打包b</a>
-                            </li>
-                            <li>
-                                <a href="#">使用码云git的webhook实现生产环境代</a>
-                            </li>
-                            <li>
-                                <a href="#">python+selenium自动登录qq空间并下载</a>
-                            </li>
-                            <li>
-                                <a href="#">vscode+XDebug调试远程环境(虚拟机)</a>
-                            </li>
-                            <li>
-                                <a href="#">抓取摩拜单车车辆位置数据</a>
-                            </li>
-                            <li>
-                                <a href="#">ubuntu下cmake报错Could NOT fin</a>
-                            </li>
-                            <li>
-                                <a href="#">初烧盲狙一条铁三角e40</a>
-                            </li>
-                            <li>
-                                <a href="#">树莓派安装homebridge小记</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
 
-                <div class="recentComment">
+                <div class="recentComment" id="newComment">
                     <p class="title">最新评论</p>
                     <ul class="con">
-                        <li>
+                        <li v-for="item,index in commentList" :key="index">
                             <p>
-                                <span class="name">穆鸟</span>
-                                <span class="time">[3天前]</span>
+                                <span class="name">{{item.name}}</span>
+                                <span class="time">{{item.data}}</span>
                             </p>
-                            <a href="#">好的，谢谢</a>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="name">1312</span>
-                                <span class="time">[2天前]</span>
-                            </p>
-                            <a href="#">while(1) alert</a>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="name">杰西</span>
-                                <span class="time">[2周前]</span>
-                            </p>
-                            <a href="#">老哥， 我针对搜索引擎做了优化， 现</a>
-                        </li>
-                        <li>
-                            <p>
-                                <span class="name">穆鸟</span>
-                                <span class="time">[3天前]</span>
-                            </p>
-                            <a href="#">好的，谢谢</a>
+                            <a href="#">{{item.comment}}</a>
                         </li>
                     </ul>
                 </div>
+
 
                 <div class="recom_site">
                     <p class="title">推荐站点 | 作品链接</p>
@@ -257,7 +178,7 @@
                         </li>
                     </ul>
                 </div>
-               
+
             </div>
 
 
@@ -283,7 +204,12 @@
             <li><a href="#">学习笔记</a></li>
             <li><a href="#">视频分享</a></li>
         </ul>
-        <p>Copyright © 2019-2019  张印个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
+        <p>Copyright © 2019-2019 张印个人博客 All rights reserved. 由免费开源的WordPress强力驱动. 鲁ICP备14017955号站长统计</p>
     </footer>
+
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/guestbook.js"></script>
 </body>
 </html>

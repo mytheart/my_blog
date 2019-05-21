@@ -14,63 +14,10 @@
     color: #000;
 }
 
-/* 留言 */
-.aboutLeaveWords {
-    margin-top: 25px;
-    padding: 15px;
-    background-color: #f5f5f5;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    box-shadow: 1px 1px 5px rgba(97, 97, 97, .48);
-}
 
-.aboutLeaveWords .WordsTitle {
-    font-size: 20px;
-    line-height: 25px;
-    height: 25px;
-}
-
-.aboutLeaveWords .wordsLeft {
-    width: 10%;
-    /* border: 1px solid #000; */
-    float: left;
-}
-
-.aboutLeaveWords .messageBoard {
-    margin-top: 10px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    clear: both;
-}
-
-.aboutLeaveWords .messageBoard .wordsLeft img {
-    width: 80%;
-    border-radius: 4px;
-}
-
-.aboutLeaveWords .messageBoard .wordsRight {
-
-    margin-left: 10px;
-    float: left;
-    padding-bottom:15px; 
-}
-
-.aboutLeaveWords .messageBoard .wordsRight .name {
-    color: #26709A;
-    font-size: 18px;
-    margin-right: 20px
-}
-.aboutLeaveWords .messageBoard .wordsRight .con{
-    min-height: 80px;
-    padding: 15px 0;
-}
-
-.aboutLeaveWords .messageBoard .wordsRight .time{
-    color: #9B9B9B;
-}
 
 /* 发表评论 */
-.sent_comment{
+main .left .sent_comment {
     margin-top: 25px;
     padding: 15px 25px;
     background-color: #f5f5f5;
@@ -78,45 +25,52 @@
     border-radius: 4px;
     box-shadow: 1px 1px 5px rgba(97, 97, 97, .48);
 }
-.sent_comment p{
+
+.sent_comment p {
     margin-top: 20px;
 }
-.sent_comment .name{
+
+.sent_comment .name {
     box-sizing: border-box;
     padding: 5px 10px;
     height: 35px;
     border-radius: 5px;
     margin-right: 50px;
 }
-.sent_comment .email{
+
+.sent_comment .email {
     box-sizing: border-box;
     padding: 5px 10px;
     height: 35px;
     width: 300px;
     border-radius: 5px;
 }
-.sent_comment .com_con{
+
+.sent_comment .com_con {
     width: 100%;
 }
-.sent_comment .verifyCode{
+
+.sent_comment .verifyCode {
     box-sizing: border-box;
     padding: 5px 10px;
     height: 35px;
     border-radius: 5px;
     margin-right: 20px;
 }
-.sent_comment .verifyImage{
+
+.sent_comment .verifyImage {
     display: inline-block;
     height: 35px;
     width: 100px;
     vertical-align: middle;
-    background-size: 100% 100%;
-    background-image: url('../imgs/zh-vm.png');
-
+    
 }
-.sent_comment .submit{
+
+.sent_comment .submit {
+    cursor: pointer;
     height: 35px;
     width: 80px;
     background-color: #fff;
     border-radius: 5px;
+    outline: none;
 }
