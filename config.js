@@ -1,6 +1,6 @@
 let fs=require('fs');
 let globalConfig={}
-let configArr=fs.readFileSync('./server.conf').toString().split('\r\n');
+let configArr=fs.readFileSync('./server.conf').toString().split('\n');
 
 for(let i=0;i<configArr.length;i++){
     let temp=configArr[i].split('=');
