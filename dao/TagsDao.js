@@ -1,4 +1,4 @@
-var dbutil = require("./DBUtil");
+var dbutil = require("./dbutil");
 
 function insertTag(tag, ctime, utime, success) {
     var insertSql = "insert into tags (`tag`, `ctime`, `utime`) values (?, ?, ?)";

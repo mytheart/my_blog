@@ -1,4 +1,4 @@
-var dbutil = require("./DBUtil");
+var dbutil = require("./dbutil");
 
 function insertTagBlogMapping(tagId, blogId, ctime, utime, success) {
     var insertSql = "insert into tag_blog_mapping (`tag_id`, `blog_id`, `ctime`, `utime`) values (?, ?, ?, ?)";
