@@ -1,10 +1,10 @@
-var blogDao = require("../dao/BlogDao");
-var tagsDao = require("../dao/TagsDao");
-var tagBlogMappingDao = require("../dao/TagBlogMappingDao");
-var commentDao = require("../dao/CommentDao");
-var timeUtil = require("../util/TimeUtil");
-var respUtil = require("../util/RespUtil");
-var captcha = require("svg-captcha");
+var blogDao = require("../dao/BlogDao.js");
+var tagsDao = require("../dao/TagsDao.js");
+var tagBlogMappingDao = require("../dao/TagBlogMappingDao.js");
+var commentDao = require("../dao/CommentDao.js");
+var timeUtil = require("../util/TimeUtil.js");
+var respUtil = require("../util/RespUtil.js");
+var captcha = require("svg-captcha.js");
 var url = require("url");
 
 var path = new Map();
