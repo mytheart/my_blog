@@ -61,7 +61,10 @@ function queryNewComments(size, success) {
     connection.end();
 }
 
-module.exports.insertComment = insertComment;
-module.exports.queryCommentsByBlogId = queryCommentsByBlogId;
-module.exports.queryCommentCountByBlogId = queryCommentCountByBlogId;
-module.exports.queryNewComments = queryNewComments;
+
+module.exports={
+    insertComment,
+    queryCommentsByBlogId,
+    queryCommentCountByBlogId,
+    queryNewComments
+}

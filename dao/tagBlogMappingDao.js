@@ -48,6 +48,9 @@ function queryByTagCount(tagId, success) {
     connection.end();
 }
 
-module.exports.insertTagBlogMapping = insertTagBlogMapping;
-module.exports.queryByTag = queryByTag;
-module.exports.queryByTagCount = queryByTagCount;
+
+module.exports = {
+    insertTagBlogMapping,
+    queryByTag,
+    queryByTagCount
+}
