@@ -2,7 +2,7 @@ let mysql=require('mysql')
 
 function createConnection(){
     let connection=mysql.createConnection({
-        host:'10.110.51.146',
+        host:'120.79.182.51',
         port:'3306',
         user:'root',
         password:'mytheart',
