@@ -2,14 +2,14 @@ let blogDao = require('../dao/BlogDao');
 let respUtil = require('../util/RespUtil');
 let timeUtil = require('../util/TimeUtil');
 var tagsDao = require("../dao/TagsDao");
-var tagBlogMappingDao = require("../dao/TagBlogMappingDao");
+// var tagBlogMappingDao = require("../dao/TagBlogMappingDao");
 let url = require('url')
 let path = new Map();
 
 path.set('/editBlog', editBlog);
 path.set('/queryBlogByPage', queryBlogByPage)
-path.set('/queryBlogCount',queryBlogCount)
-path.set('/queryBlogById',queryBlogById)
+path.set('/queryBlogCount', queryBlogCount)
+path.set('/queryBlogById', queryBlogById)
 path.set("/queryAllBlog", queryAllBlog);
 path.set("/queryHotBlog", queryHotBlog);
 
@@ -24,8 +24,8 @@ function queryAllBlog(request, response) {
 
 function queryBlogById(request, response) {
     var params = url.parse(request.url, true).query;
-    blogDao.queryBlogById(parseInt(params.id), function(result) {
-       
+    blogDao.queryBlogById(parseInt(params.id), function (result) {
+
         response.writeHead(200);
         response.write(respUtil.writeResult("success", "查询成功", result));
         response.end();
@@ -65,7 +65,7 @@ function editBlog(request, response) {
             response.end();
             var blogId = result.insertId;
             var tagList = tags.split(",");
-            for (var i = 0 ; i < tagList.length ; i ++) {
+            for (var i = 0; i < tagList.length; i++) {
                 if (tagList[i] == "") {
                     continue;
                 }

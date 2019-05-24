@@ -20,14 +20,7 @@ path.set("/queryRandomTags", queryRandomTags);
 
 function queryByTag(request, response) {
     var params = url.parse(request.url, true).query;
-    // tagsDao.queyrTag(params.tag, function (result) {
-        // if (result == null || result.length == 0) {
-        //     console.log(1)
-        //     response.writeHead(200);
-        //     response.write(respUtil.writeResult("success", "查询成功", result));
-        //     response.end();
-        // } else {
-        //     console.log(2)
+    
             tagBlogMappingDao.queryByTag(params.id, parseInt(params.page), parseInt(params.pageSize), function (result) {
 
                 var blogList = [];
@@ -38,8 +31,6 @@ function queryByTag(request, response) {
                 }
                 getResult(blogList, result.length, response);
             });
-        // }
-    // });
 }
 path.set("/queryByTag", queryByTag);
 
