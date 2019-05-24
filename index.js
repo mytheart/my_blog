@@ -35,8 +35,8 @@ server.get("/queryRandomTags", loader.get("/queryRandomTags"));
 server.get("/queryHotBlog", loader.get("/queryHotBlog"));
 server.get("/queryNewComments", loader.get("/queryNewComments"));
 
-// server.get("/queryByTag", loader.get("/queryByTag"));
-// server.get("/queryByTagCount", loader.get("/queryByTagCount"));
+server.get("/queryByTag", loader.get("/queryByTag"));
+server.get("/queryByTagCount", loader.get("/queryByTagCount"));
 
 
 
