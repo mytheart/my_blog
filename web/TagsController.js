@@ -1,6 +1,7 @@
 var blogDao = require("../dao/BlogDao");
 var tagsDao = require("../dao/TagsDao");
-var tagBlogMappingDao = require("../dao/TagBlogMappingDao");
+// var tagBlogMappingDao = require("../dao/TagBlogMappingDao");
+var tagBlogMappingDao=require("../dao/TagBlogMappingDao.js")
 var respUtil = require("../util/RespUtil");
 var url = require("url");
 
