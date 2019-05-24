@@ -1,6 +1,6 @@
 let express = require("express");
-let globalConfig = require("./config.js");
-let loader = require("./loader.js");
+let globalConfig = require("./config");
+let loader = require("./loader");
 let url = require('url');
 
 let server = express();
@@ -43,6 +43,5 @@ server.get("/queryNewComments", loader.get("/queryNewComments"));
 
 
 server.listen(globalConfig.port, function () {
-
-    console.log("Server running at http://127.0.0.1:8888/")
+    console.log("Server running at http://120.79.182.51")
 })

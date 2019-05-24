@@ -1,5 +1,5 @@
 let fs = require("fs");
-let globalConfig = require("./config.js");
+let globalConfig = require("./config");
 
 let controllerSet = [];
 let pathMap = new Map();

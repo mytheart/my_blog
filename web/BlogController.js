@@ -1,8 +1,8 @@
 let blogDao = require('../dao/BlogDao');
-let respUtil = require('../util/RespUtil.js');
-let timeUtil = require('../util/TimeUtil.js');
-var tagsDao = require("../dao/TagsDao.js");
-var tagBlogMappingDao = require("../dao/TagBlogMappingDao.js");
+let respUtil = require('../util/RespUtil');
+let timeUtil = require('../util/TimeUtil');
+var tagsDao = require("../dao/TagsDao");
+var tagBlogMappingDao = require("../dao/TagBlogMappingDao");
 let url = require('url')
 let path = new Map();
 

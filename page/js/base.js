@@ -67,7 +67,7 @@ const newComment = new Vue({
             url:'/queryNewComments',
             method:'get'
         }).then((resp)=>{
-            console.log(resp.data.data)
+            // console.log(resp.data.data)
             resp.data.data.forEach(ele=>{
                 let temp={
                     name:ele.user_name,

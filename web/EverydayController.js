@@ -1,5 +1,5 @@
-let everyDayDao=require('../dao/EverydayDao.js');
-let respUtil=require('../util/RespUtil.js');
+let everyDayDao=require('../dao/EverydayDao');
+let respUtil=require('../util/RespUtil');
 
 
 let path=new Map();
